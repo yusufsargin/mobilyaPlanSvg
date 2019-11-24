@@ -4,7 +4,7 @@ const PDFDocument = require('pdfkit');
 
 router.post('/', function (req, res, next) {
     const kesimListesi = req.body.kesmeListesi;
-
+    console.log(kesimListesi);
     let doc = new PDFDocument({
         margin: 50
     });
