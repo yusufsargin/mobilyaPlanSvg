@@ -9,10 +9,10 @@ router.get('/', function (req, res, next) {
         margin: 50
     });
 
-    for (let i = 0; i < 10; i++) {
-        doc.text(kesimListesi[i])
+    kesimListesi.map(function (item) {
+        doc.text(item)
             .moveDown(2);
-    }
+    });
 
     res.setHeader('Content-disposition', 'attachment; filename="' + 'Deneme.pdf' + '"');
     res.setHeader('Content-type', 'application/pdf');
