@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const PDFDocument = require('pdfkit');
 
-router.get('/', function (req, res, next) {
-    const kesimListesi = req.query.kesmeListesi;
+router.post('/', function (req, res, next) {
+    const kesimListesi = req.body.kesmeListesi;
 
     let doc = new PDFDocument({
         margin: 50
