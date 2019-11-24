@@ -3,15 +3,15 @@ const router = express.Router();
 const PDFDocument = require('pdfkit');
 
 router.get('/', function (req, res, next) {
+    const kesimListesi = req.query.kesmeListesi;
+
     let doc = new PDFDocument({
         margin: 50
     });
 
-    for(let i = 0 ; i<10;i++){
-        doc.text('Merhaba1')
-            .moveDown(0.5)
-            .text('merhaba2')
-            .moveDown(0.5);
+    for (let i = 0; i < 10; i++) {
+        doc.text(kesimListesi[i])
+            .moveDown(2);
     }
 
     res.setHeader('Content-disposition', 'attachment; filename="' + 'Deneme.pdf' + '"');
